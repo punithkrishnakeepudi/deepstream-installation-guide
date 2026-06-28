@@ -31,3 +31,39 @@ To build a custom project like pothole detection, you build the model outside of
   Search for *"DeepStream Python Apps GitHub"* (repository: `NVIDIA-AI-IOT/deepstream_python_apps`). It contains sample applications from "hello world" to multi-camera YOLO detection.
 * **NVIDIA DeepStream Developer Documentation:**
   Check out the official Developer Guide: [https://docs.nvidia.com/metropolis/deepstream/dev-guide/](https://docs.nvidia.com/metropolis/deepstream/dev-guide/). Read the "DeepStream Reference Application - deepstream-app" section to understand the config file parameters.
+
+## 4. Commands for the videos you ran
+
+Here are the exact commands you can copy and paste to run the different videos you have tested:
+
+**1. Run the Office Video (`sample_office.mp4`):**
+```bash
+cd /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/
+cp source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt source_office_video.txt
+sed -i 's|uri=file://../../streams/sample_1080p_h264.mp4|uri=file://../../streams/sample_office.mp4|g' source_office_video.txt
+deepstream-app -c source_office_video.txt
+```
+
+**2. Run the Walking Video (`sample_walk.mov`):**
+```bash
+cd /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/
+cp source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt source_walk_video.txt
+sed -i 's|uri=file://../../streams/sample_1080p_h264.mp4|uri=file://../../streams/sample_walk.mov|g' source_walk_video.txt
+deepstream-app -c source_walk_video.txt
+```
+
+**3. Run the Bike Video (`sample_ride_bike.mov`):**
+```bash
+cd /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/
+cp source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt source_sample_ride_bike.txt
+sed -i 's|uri=file://../../streams/sample_1080p_h264.mp4|uri=file://../../streams/sample_ride_bike.mov|g' source_sample_ride_bike.txt
+deepstream-app -c source_sample_ride_bike.txt
+```
+
+**4. Run the Fisheye Video (`fisheye_dist.mp4`):**
+```bash
+cd /opt/nvidia/deepstream/deepstream-7.1/samples/configs/deepstream-app/
+cp source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt source_fisheye_dist.txt
+sed -i 's|uri=file://../../streams/sample_1080p_h264.mp4|uri=file://../../streams/fisheye_dist.mp4|g' source_fisheye_dist.txt
+deepstream-app -c source_fisheye_dist.txt
+```
